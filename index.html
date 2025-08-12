@@ -1,10 +1,9 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Capacity Development Program on DWDM Transmission Network</title>
+    <title>Capacity Development for Implementing Eduroam in NRENs</title>
     <style>
         * {
             margin: 0;
@@ -98,7 +97,7 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="optical" width="30" height="30" patternUnits="userSpaceOnUse"><circle cx="15" cy="15" r="3" fill="white" opacity="0.1"/><path d="M5 15h25M15 5v25" stroke="white" stroke-width="1" opacity="0.08"/><circle cx="15" cy="15" r="8" fill="none" stroke="white" stroke-width="0.5" opacity="0.06"/></pattern></defs><rect width="100" height="100" fill="url(%23optical)"/></svg>');
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="wifi" width="25" height="25" patternUnits="userSpaceOnUse"><circle cx="12.5" cy="12.5" r="3" fill="white" opacity="0.1"/><path d="M5 12.5Q12.5 5 20 12.5M7.5 12.5Q12.5 7.5 17.5 12.5M10 12.5Q12.5 10 15 12.5" stroke="white" stroke-width="0.8" opacity="0.08" fill="none"/></pattern></defs><rect width="100" height="100" fill="url(%23wifi)"/></svg>');
             pointer-events: none;
         }
 
@@ -255,65 +254,45 @@
             letter-spacing: 1px;
         }
 
-        /* Training Format Section */
-        .training-format {
+        /* Eduroam Section */
+        .eduroam {
             background: var(--white);
             padding: 4rem 0;
         }
 
-        .format-content {
+        .eduroam-content {
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 3rem;
             align-items: center;
         }
 
-        .format-text h2 {
+        .eduroam-text h2 {
             color: var(--primary);
             font-size: 2.5rem;
             margin-bottom: 1.5rem;
         }
 
-        .phase-cards {
+        .eduroam-features {
             display: grid;
             grid-template-columns: 1fr;
-            gap: 1.5rem;
+            gap: 1rem;
         }
 
-        .phase-card {
+        .feature-item {
             background: var(--body);
-            padding: 2rem;
-            border-radius: 15px;
+            padding: 1.5rem;
+            border-radius: 10px;
             border-left: 4px solid var(--primary);
-            box-shadow: 0 4px 20px rgba(242, 140, 40, 0.1);
-            transition: transform 0.3s ease;
+            box-shadow: 0 2px 10px rgba(242, 140, 40, 0.1);
         }
 
-        .phase-card:hover {
-            transform: translateY(-5px);
-        }
-
-        .phase-card h3 {
+        .feature-item h4 {
             color: var(--primary);
-            font-size: 1.3rem;
-            margin-bottom: 1rem;
+            margin-bottom: 0.5rem;
         }
 
-        .phase-number {
-            background: var(--primary);
-            color: var(--white);
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: bold;
-            font-size: 1.2rem;
-            margin-bottom: 1rem;
-        }
-
-        .format-highlight {
+        .eduroam-highlight {
             background: linear-gradient(135deg, var(--primary), var(--secondary));
             color: var(--white);
             padding: 3rem;
@@ -322,13 +301,13 @@
             box-shadow: 0 10px 30px rgba(242, 140, 40, 0.3);
         }
 
-        .format-highlight h3 {
+        .eduroam-highlight h3 {
             font-size: 2rem;
             margin-bottom: 1rem;
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
         }
 
-        .format-highlight .icon {
+        .eduroam-highlight .icon {
             font-size: 4rem;
             margin-bottom: 1rem;
         }
@@ -348,8 +327,8 @@
 
         .countries-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-            gap: 1.5rem;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
         }
 
         .country-card {
@@ -372,40 +351,36 @@
 
         .country-card h3 {
             color: var(--primary);
-            font-size: 1rem;
+            font-size: 1.1rem;
             margin-bottom: 0.5rem;
         }
 
-        .country-card.lead {
-            border: 3px solid var(--primary);
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
-            color: var(--white);
+        .country-card p {
+            color: var(--text);
+            font-size: 0.8rem;
+            opacity: 0.8;
         }
 
-        .country-card.lead h3 {
-            color: var(--white);
-        }
-
-        /* Technology Section */
-        .technology {
+        /* Activities Section */
+        .activities {
             background: var(--white);
             padding: 4rem 0;
         }
 
-        .technology h2 {
+        .activities h2 {
             text-align: center;
             color: var(--primary);
             font-size: 2.5rem;
             margin-bottom: 3rem;
         }
 
-        .tech-grid {
+        .activities-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 2rem;
         }
 
-        .tech-card {
+        .activity-card {
             background: var(--body);
             padding: 2rem;
             border-radius: 15px;
@@ -414,12 +389,12 @@
             border: 2px solid transparent;
         }
 
-        .tech-card:hover {
+        .activity-card:hover {
             border-color: var(--primary);
             transform: translateY(-5px);
         }
 
-        .tech-icon {
+        .activity-icon {
             width: 60px;
             height: 60px;
             background: var(--primary);
@@ -432,7 +407,7 @@
             color: var(--white);
         }
 
-        .tech-card h3 {
+        .activity-card h3 {
             color: var(--primary);
             font-size: 1.3rem;
             margin-bottom: 1rem;
@@ -503,19 +478,6 @@
             display: grid;
             grid-template-columns: 1fr;
             gap: 1rem;
-        }
-
-        .feature-item {
-            background: var(--body);
-            padding: 1.5rem;
-            border-radius: 10px;
-            border-left: 4px solid var(--primary);
-            box-shadow: 0 2px 10px rgba(242, 140, 40, 0.1);
-        }
-
-        .feature-item h4 {
-            color: var(--primary);
-            margin-bottom: 0.5rem;
         }
 
         .institution-highlight {
@@ -639,7 +601,7 @@
             }
 
             .content-grid,
-            .format-content,
+            .eduroam-content,
             .institution-content {
                 grid-template-columns: 1fr;
                 gap: 2rem;
@@ -675,7 +637,7 @@
         }
 
         @media (max-width: 480px) {
-            .tech-grid,
+            .activities-grid,
             .outcomes-grid,
             .future-grid {
                 grid-template-columns: 1fr;
@@ -690,9 +652,9 @@
             }
 
             .overview,
-            .training-format,
+            .eduroam,
             .countries,
-            .technology,
+            .activities,
             .outcomes,
             .lead-institution,
             .future {
@@ -728,25 +690,25 @@
             transform: translateY(0);
         }
 
-        /* Optical transmission themed animations */
-        @keyframes opticalPulse {
+        /* WiFi themed animations */
+        @keyframes wifiPulse {
             0%, 100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(242, 140, 40, 0.4); }
-            50% { transform: scale(1.05); box-shadow: 0 0 0 15px rgba(242, 140, 40, 0); }
+            50% { transform: scale(1.05); box-shadow: 0 0 0 10px rgba(242, 140, 40, 0); }
         }
 
-        .tech-icon:hover {
-            animation: opticalPulse 2s ease-in-out;
+        .activity-icon:hover {
+            animation: wifiPulse 1.5s ease-in-out;
         }
 
-        /* DWDM wavelength animation */
-        @keyframes wavelengthFlow {
-            0% { opacity: 0.5; transform: translateX(-20px) scale(0.8); }
-            50% { opacity: 1; transform: translateX(10px) scale(1.1); }
-            100% { opacity: 0.5; transform: translateX(-20px) scale(0.8); }
+        /* Eduroam connectivity animation */
+        @keyframes eduroamFlow {
+            0% { opacity: 0.5; transform: translateX(-15px); }
+            50% { opacity: 1; transform: translateX(8px); }
+            100% { opacity: 0.5; transform: translateX(-15px); }
         }
 
-        .phase-card:hover {
-            animation: wavelengthFlow 3s ease-in-out;
+        .feature-item:hover {
+            animation: eduroamFlow 2.5s ease-in-out;
         }
     </style>
 </head>
@@ -754,11 +716,11 @@
     <!-- Header -->
     <header class="header">
         <nav class="nav">
-            <a href="#" class="logo">DWDM Training</a>
+            <a href="#" class="logo">Eduroam Training</a>
             <ul class="nav-links">
                 <li><a href="#overview">Overview</a></li>
-                <li><a href="#format">Training Format</a></li>
-                <li><a href="#technology">Technology</a></li>
+                <li><a href="#eduroam">Eduroam</a></li>
+                <li><a href="#countries">Countries</a></li>
                 <li><a href="#outcomes">Outcomes</a></li>
             </ul>
             <button class="mobile-menu-btn">☰</button>
@@ -768,10 +730,10 @@
     <!-- Hero Section -->
     <section class="hero">
         <div class="hero-content fade-in">
-            <h1>DWDM Training Program</h1>
-            <div class="subtitle">Dense Wavelength Division Multiplexing</div>
-            <p>Building technical capacity among NREN engineers in DWDM transmission network technology through innovative blended training combining theoretical foundation with hands-on practical experience</p>
-            <a href="#overview" class="cta-button">Explore Program</a>
+            <h1>Eduroam Capacity Development</h1>
+            <div class="subtitle">Seamless Campus Wi-Fi Access</div>
+            <p>Strengthening the capacity of NREN network personnel in Asia for deploying and managing Eduroam services through targeted training, fostering seamless and secure campus Wi-Fi access across partner countries</p>
+            <a href="#overview" class="cta-button">Join Training</a>
         </div>
     </section>
 
@@ -798,64 +760,66 @@
         <div class="container">
             <div class="content-grid">
                 <div class="content-text scroll-reveal">
-                    <h2>Program Overview</h2>
-                    <p>Led by Bangladesh Research and Education Network (BdREN), this comprehensive program builds technical capacity among NREN engineers in Dense Wavelength Division Multiplexing (DWDM) technology across eleven countries.</p>
-                    <p>Our innovative two-phase blended format combines online theoretical sessions with intensive hands-on training using real CISCO DWDM ONS equipment, promoting collaboration, supporting gender inclusion, and bridging the digital divide in LMICs.</p>
+                    <h2>Project Overview</h2>
+                    <p>This comprehensive project strengthens the capacity of NREN network personnel across Asia for deploying and managing Eduroam services through targeted training workshops and webinars.</p>
+                    <p>Our initiative fosters seamless and secure campus Wi-Fi access across partner countries while enhancing regional research and education network integration through standardized authentication and roaming services.</p>
                 </div>
                 <div class="stats-grid scroll-reveal">
                     <div class="stat-card">
-                        <span class="stat-number">11</span>
-                        <span class="stat-label">Countries Involved</span>
+                        <span class="stat-number">80</span>
+                        <span class="stat-label">Training Participants</span>
                     </div>
                     <div class="stat-card">
-                        <span class="stat-number">2</span>
-                        <span class="stat-label">Training Phases</span>
-                    </div>
-                    <div class="stat-card">
-                        <span class="stat-number">8</span>
-                        <span class="stat-label">Virtual Sessions</span>
+                        <span class="stat-number">9</span>
+                        <span class="stat-label">Partner Countries</span>
                     </div>
                     <div class="stat-card">
                         <span class="stat-number">4</span>
-                        <span class="stat-label">Hands-on Days</span>
+                        <span class="stat-label">Training Days</span>
+                    </div>
+                    <div class="stat-card">
+                        <span class="stat-number">2</span>
+                        <span class="stat-label">Webinar Sessions</span>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Training Format Section -->
-    <section id="format" class="training-format">
+    <!-- Eduroam Section -->
+    <section id="eduroam" class="eduroam">
         <div class="container">
-            <div class="format-content">
-                <div class="format-text scroll-reveal">
-                    <h2>Two-Phase Training Format</h2>
-                    <p>Our innovative blended approach maximizes learning outcomes through a carefully structured progression from theoretical foundation to practical application.</p>
+            <div class="eduroam-content">
+                <div class="eduroam-text scroll-reveal">
+                    <h2>What is Eduroam?</h2>
+                    <p>Education Roaming (eduroam) is a secure, worldwide roaming access service developed for the international research and education community, enabling seamless Wi-Fi connectivity across participating institutions.</p>
                     
-                    <div class="phase-cards">
-                        <div class="phase-card">
-                            <div class="phase-number">1</div>
-                            <h3>📚 Virtual Theoretical Phase</h3>
-                            <p><strong>Duration:</strong> 8 sessions over Zoom Platform<br>
-                            <strong>Schedule:</strong> 2 hours, twice weekly<br>
-                            <strong>Focus:</strong> SDH principles, DWDM overview, key technologies (OTN, FOADM, ROADM, ASON)</p>
+                    <div class="eduroam-features">
+                        <div class="feature-item">
+                            <h4>🔐 Secure Authentication</h4>
+                            <p>Advanced WPA2-Enterprise security with 802.1X authentication for robust campus network protection.</p>
                         </div>
-                        <div class="phase-card">
-                            <div class="phase-number">2</div>
-                            <h3>🔧 Hands-on Practical Phase</h3>
-                            <p><strong>Duration:</strong> 4-day intensive training<br>
-                            <strong>Location:</strong> BdREN, Dhaka, Bangladesh<br>
-                            <strong>Focus:</strong> CISCO DWDM ONS equipment, real production network environment</p>
+                        <div class="feature-item">
+                            <h4>🌍 Global Roaming</h4>
+                            <p>Seamless Wi-Fi access across thousands of participating institutions worldwide using home institution credentials.</p>
+                        </div>
+                        <div class="feature-item">
+                            <h4>🎓 Academic Community</h4>
+                            <p>Dedicated service for students, researchers, and staff from universities and research institutions globally.</p>
+                        </div>
+                        <div class="feature-item">
+                            <h4>⚙️ Standardized Configuration</h4>
+                            <p>Consistent setup and management procedures across all participating NRENs and educational institutions.</p>
                         </div>
                     </div>
                 </div>
-                <div class="format-highlight scroll-reveal">
-                    <div class="icon">🌐</div>
-                    <h3>Blended Learning</h3>
-                    <p><strong>Entry Requirement:</strong> Pass Phase 1 Quiz</p>
-                    <p><strong>Equipment:</strong> CISCO DWDM ONS15454</p>
-                    <p><strong>Network:</strong> TEIN Infrastructure</p>
-                    <p><strong>Methodology:</strong> Train-the-Trainer</p>
+                <div class="eduroam-highlight scroll-reveal">
+                    <div class="icon">📶</div>
+                    <h3>Eduroam Network</h3>
+                    <p><strong>Authentication:</strong> 802.1X / WPA2-Enterprise</p>
+                    <p><strong>Coverage:</strong> Global Academic Network</p>
+                    <p><strong>Security:</strong> Enterprise-Grade</p>
+                    <p><strong>Access:</strong> Institution Credentials</p>
                 </div>
             </div>
         </div>
@@ -866,89 +830,69 @@
         <div class="container">
             <h2 class="scroll-reveal">Participating Countries</h2>
             <div class="countries-grid">
-                <div class="country-card lead scroll-reveal">
-                    <div class="country-flag">🇧🇩</div>
-                    <h3>Bangladesh</h3>
-                    <p>Lead Country - BdREN</p>
-                </div>
                 <div class="country-card scroll-reveal">
                     <div class="country-flag">🇦🇫</div>
                     <h3>Afghanistan</h3>
+                    <p>NREN network personnel</p>
+                </div>
+                <div class="country-card scroll-reveal">
+                    <div class="country-flag">🇧🇩</div>
+                    <h3>Bangladesh</h3>
+                    <p>Host country - PSTU & BdREN</p>
                 </div>
                 <div class="country-card scroll-reveal">
                     <div class="country-flag">🇧🇹</div>
                     <h3>Bhutan</h3>
+                    <p>Campus network administrators</p>
                 </div>
                 <div class="country-card scroll-reveal">
                     <div class="country-flag">🇰🇭</div>
                     <h3>Cambodia</h3>
-                </div>
-                <div class="country-card scroll-reveal">
-                    <div class="country-flag">🇱🇦</div>
-                    <h3>Laos</h3>
+                    <p>WLAN technical staff</p>
                 </div>
                 <div class="country-card scroll-reveal">
                     <div class="country-flag">🇳🇵</div>
                     <h3>Nepal</h3>
+                    <p>Network operation teams</p>
                 </div>
                 <div class="country-card scroll-reveal">
                     <div class="country-flag">🇵🇰</div>
                     <h3>Pakistan</h3>
+                    <p>Eduroam specialists</p>
                 </div>
                 <div class="country-card scroll-reveal">
                     <div class="country-flag">🇵🇭</div>
                     <h3>Philippines</h3>
+                    <p>Wi-Fi infrastructure teams</p>
                 </div>
                 <div class="country-card scroll-reveal">
                     <div class="country-flag">🇱🇰</div>
                     <h3>Sri Lanka</h3>
+                    <p>Campus IT professionals</p>
                 </div>
                 <div class="country-card scroll-reveal">
                     <div class="country-flag">🇹🇭</div>
                     <h3>Thailand</h3>
-                </div>
-                <div class="country-card scroll-reveal">
-                    <div class="country-flag">🇻🇳</div>
-                    <h3>Vietnam</h3>
+                    <p>Research network engineers</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Technology Section -->
-    <section id="technology" class="technology">
+    <!-- Activities Section -->
+    <section class="activities">
         <div class="container">
-            <h2 class="scroll-reveal">DWDM Technology Stack</h2>
-            <div class="tech-grid">
-                <div class="tech-card scroll-reveal">
-                    <div class="tech-icon">🌐</div>
-                    <h3>DWDM Fundamentals</h3>
-                    <p>Dense Wavelength Division Multiplexing principles and optical network architecture</p>
+            <h2 class="scroll-reveal">Training Activities</h2>
+            <div class="activities-grid">
+                <div class="activity-card scroll-reveal">
+                    <div class="activity-icon">📢</div>
+                    <h3>Outreach & Promotion</h3>
+                    <p>Physical and online promotional efforts including banners, social media, and university outreach to ensure wide visibility and engagement.</p>
                 </div>
-                <div class="tech-card scroll-reveal">
-                    <div class="tech-icon">🔧</div>
-                    <h3>CISCO ONS15454</h3>
-                    <p>Hands-on experience with professional CISCO DWDM ONS equipment in production environment</p>
-                </div>
-                <div class="tech-card scroll-reveal">
-                    <div class="tech-icon">📡</div>
-                    <h3>SDH Principles</h3>
-                    <p>Synchronous Digital Hierarchy working principles and network fundamentals</p>
-                </div>
-                <div class="tech-card scroll-reveal">
-                    <div class="tech-icon">🔀</div>
-                    <h3>OTN Technology</h3>
-                    <p>Optical Transport Network protocols and advanced multiplexing techniques</p>
-                </div>
-                <div class="tech-card scroll-reveal">
-                    <div class="tech-icon">🌊</div>
-                    <h3>ROADM Systems</h3>
-                    <p>Reconfigurable Optical Add-Drop Multiplexer and flexible optical networking</p>
-                </div>
-                <div class="tech-card scroll-reveal">
-                    <div class="tech-icon">🎯</div>
-                    <h3>ASON Networks</h3>
-                    <p>Automatically Switched Optical Network design and implementation strategies</p>
+                <div class="activity-card scroll-reveal">
+                    <div class="activity-icon">📋</div>
+                    <h3>Documentation & Reporting</h3>
+                    <p>Compilation of survey data, training feedback, and project outcomes in a comprehensive final report submitted to TEIN*CC/Asi@Connect.</p>
                 </div>
             </div>
         </div>
@@ -960,35 +904,35 @@
             <div class="institution-content">
                 <div class="institution-text scroll-reveal">
                     <h2>Lead Institution</h2>
-                    <p>Bangladesh Research and Education Network (BdREN) serves as the lead institution, providing comprehensive DWDM training facilities including access to modern CISCO DWDM ONS equipment in a real production network environment.</p>
-                    <p>BdREN's expertise in optical network systems, combined with industry partnership with Huawei Bangladesh, ensures participants receive world-class training in transmission network technology.</p>
+                    <p>Patuakhali Science and Technology University (PSTU) in Bangladesh leads this transformative initiative in partnership with Bangladesh Research and Education Network (BdREN) and the University Grants Commission (UGC).</p>
+                    <p>Our collaborative approach with the Ministry of Education and national NRENs ensures comprehensive Eduroam deployment training that meets regional needs and international standards.</p>
                     
                     <div class="institution-features">
                         <div class="feature-item">
-                            <h4>🏗️ Production Network Lab</h4>
-                            <p>Real CISCO DWDM ONS15454 equipment for authentic hands-on training experience.</p>
+                            <h4>🏫 PSTU Leadership</h4>
+                            <p>Patuakhali Science and Technology University providing academic coordination and venue facilities.</p>
                         </div>
                         <div class="feature-item">
-                            <h4>👨‍🏫 Industry Partnership</h4>
-                            <p>Collaboration with Huawei Bangladesh providing expert industry trainers and insights.</p>
+                            <h4>🌐 BdREN Partnership</h4>
+                            <p>Bangladesh Research and Education Network offering technical infrastructure and connectivity support.</p>
                         </div>
                         <div class="feature-item">
-                            <h4>🎓 Train-the-Trainer Model</h4>
-                            <p>Participants become regional trainers, ensuring sustainable knowledge transfer.</p>
+                            <h4>🏛️ Government Support</h4>
+                            <p>University Grants Commission and Ministry of Education providing institutional backing and policy alignment.</p>
                         </div>
                         <div class="feature-item">
-                            <h4>👩‍💻 Gender Inclusion</h4>
-                            <p>30% quota for female engineers promoting gender equality in transmission networks.</p>
+                            <h4>🤝 NREN Collaboration</h4>
+                            <p>Partnership with National Research and Education Networks across all 9 participating countries.</p>
                         </div>
                     </div>
                 </div>
                 <div class="institution-highlight scroll-reveal">
                     <div class="flag">🇧🇩</div>
-                    <h3>BdREN Bangladesh</h3>
-                    <p><strong>Lead Institution:</strong> Bangladesh Research and Education Network</p>
-                    <p><strong>Industry Partner:</strong> Huawei Bangladesh</p>
-                    <p><strong>Location:</strong> Dhaka, Bangladesh</p>
-                    <p><strong>Network:</strong> TEIN Infrastructure</p>
+                    <h3>PSTU Bangladesh</h3>
+                    <p><strong>Lead Institution:</strong> Patuakhali Science and Technology University</p>
+                    <p><strong>Technical Partner:</strong> BdREN</p>
+                    <p><strong>Government Partner:</strong> UGC & Ministry of Education</p>
+                    <p><strong>Domain:</strong> asiaconnect.cse.pstu.ac.bd</p>
                 </div>
             </div>
         </div>
@@ -1000,36 +944,36 @@
             <h2 class="scroll-reveal">Key Outcomes</h2>
             <div class="outcomes-grid">
                 <div class="outcome-card scroll-reveal">
-                    <h3>🎓 Enhanced DWDM Expertise</h3>
-                    <p>NREN engineers gained comprehensive theoretical and practical understanding of state-of-the-art Optical Network System (ONS) DWDM technology for network deployment and operation.</p>
+                    <h3>📊 Network Readiness Assessment</h3>
+                    <p>Developed and launched comprehensive online survey to assess campus network readiness and infrastructure capabilities across all 9 partner NRENs.</p>
                 </div>
                 <div class="outcome-card scroll-reveal">
-                    <h3>📈 Stimulated Network Demand</h3>
-                    <p>Successfully aroused latent demand among participating NRENs without existing DWDM networks, helping them understand benefits of establishing sustainable infrastructures.</p>
+                    <h3>🌐 Project Platform</h3>
+                    <p>Created dedicated project website hosted on BdREN cloud for visibility, coordination, resource sharing, and ongoing community engagement.</p>
                 </div>
                 <div class="outcome-card scroll-reveal">
-                    <h3>🌍 Digital Divide Bridge</h3>
-                    <p>Significantly helped bridge the digital divide among Least Developed Countries (LDCs) and Lower Middle-Income Countries (LMICs) through enhanced technical capacity.</p>
+                    <h3>🎓 Blended Training Success</h3>
+                    <p>Conducted international workshop with hands-on Eduroam training for 80 participants, combining onsite and virtual learning experiences.</p>
                 </div>
                 <div class="outcome-card scroll-reveal">
-                    <h3>👩‍💻 Gender Empowerment</h3>
-                    <p>Contributed to educating female engineers and increasing their skills in transmission networks, supporting gender equality in the engineering sector.</p>
+                    <h3>💻 Community Webinars</h3>
+                    <p>Delivered two comprehensive webinars on Eduroam services for wider academic community engagement and awareness building.</p>
                 </div>
                 <div class="outcome-card scroll-reveal">
-                    <h3>🤝 Regional Collaboration</h3>
-                    <p>Enhanced collaboration and fostered development of human networks among NRENs, with engineers exchanging knowledge and ideas for future problem-solving.</p>
+                    <h3>📚 Training Resources</h3>
+                    <p>Produced comprehensive training manuals, lecture notes, and practical lab exercises for workshop and webinar participants.</p>
                 </div>
                 <div class="outcome-card scroll-reveal">
-                    <h3>🔄 Blended Training Innovation</h3>
-                    <p>Successfully introduced new blended training format combining virtual and physical components, achieving higher benefit-cost ratio and maximum training benefits.</p>
+                    <h3>📋 Survey Analysis</h3>
+                    <p>Compiled detailed survey report summarizing network conditions, infrastructure readiness, and specific training needs across partner countries.</p>
                 </div>
                 <div class="outcome-card scroll-reveal">
-                    <h3>📡 TEIN Network Utilization</h3>
-                    <p>Virtual training phase led to higher utilization of TEIN network as overseas participants connected through it, demonstrating unique research network leveraging.</p>
+                    <h3>📸 Project Documentation</h3>
+                    <p>Captured comprehensive photos, videos, and documentation of all project activities for records, reporting, and future reference.</p>
                 </div>
                 <div class="outcome-card scroll-reveal">
-                    <h3>📚 Knowledge Sustainability</h3>
-                    <p>Established train-the-trainer methodology ensuring participants can share acquired knowledge with engineers in their respective NRENs and member institutions.</p>
+                    <h3>📄 Completion Report</h3>
+                    <p>Submitted comprehensive final report detailing project activities, outcomes, participant feedback, and recommendations for future initiatives.</p>
                 </div>
             </div>
         </div>
@@ -1040,32 +984,32 @@
         <div class="container">
             <div class="future-content scroll-reveal">
                 <h2>Future Directions</h2>
-                <p>Expanding DWDM technology adoption and capacity building across the Asia-Pacific region through sustained knowledge transfer and network development initiatives.</p>
+                <p>Expanding Eduroam adoption and technical expertise across Asia through sustained capacity building, enhanced infrastructure support, and broader community engagement.</p>
                 
                 <div class="future-grid">
                     <div class="future-item">
-                        <h3>🚀 Knowledge Application</h3>
-                        <p>Engineers apply gained expertise in deploying and operating DWDM network systems and services in their respective NRENs.</p>
+                        <h3>🚀 Advanced Training</h3>
+                        <p>Offer advanced workshops and refresher courses to deepen technical skills among NREN personnel and network administrators.</p>
                     </div>
                     <div class="future-item">
-                        <h3>🔄 Workshop Replication</h3>
-                        <p>Participants organize similar workshops in their countries, spreading Optical Network Technology knowledge for self-sustainable capacity development.</p>
+                        <h3>👩‍💻 Gender Inclusion</h3>
+                        <p>Develop targeted outreach and incentives to boost female engagement in technical training and network engineering roles.</p>
                     </div>
                     <div class="future-item">
-                        <h3>📚 Continued Support</h3>
-                        <p>All workshop materials and instructor contacts updated in Learning Management System for participants' future access and reference.</p>
+                        <h3>🛠️ Implementation Support</h3>
+                        <p>Provide follow-up assistance for implementing Eduroam in under-resourced institutions and challenging technical environments.</p>
                     </div>
                     <div class="future-item">
-                        <h3>🛠️ Installation Assistance</h3>
-                        <p>BdREN engineers remain available to assist other NRENs with future DWDM-based transmission network installations and configurations.</p>
+                        <h3>🤝 Expert Network</h3>
+                        <p>Build a regional network of Eduroam-trained experts across Asia for peer support, knowledge sharing, and technical collaboration.</p>
                     </div>
                     <div class="future-item">
-                        <h3>🎯 Service Deployment</h3>
-                        <p>Junior engineers deploy new services targeting member institutions using learned network virtualization and security configurations.</p>
+                        <h3>📢 Awareness Campaigns</h3>
+                        <p>Conduct targeted awareness campaigns in universities where Eduroam adoption is still low and institutional support is needed.</p>
                     </div>
                     <div class="future-item">
-                        <h3>🌐 Regional Expansion</h3>
-                        <p>Organizational learning from active participation enables broader regional optical network technology adoption and implementation.</p>
+                        <h3>📚 Self-Paced Learning</h3>
+                        <p>Create comprehensive self-paced modules and video tutorials to ensure continuous access to training materials and resources.</p>
                     </div>
                 </div>
             </div>
@@ -1077,12 +1021,12 @@
         <div class="container">
             <div class="footer-content">
                 <div class="footer-section">
-                    <h3>Program Information</h3>
-                    <p>The DWDM Transmission Network Capacity Development Program is funded under the 5th Call of the Asi@Connect program, supported by the European Union and implemented through TEIN Cooperation Center.</p>
+                    <h3>Project Information</h3>
+                    <p>The Eduroam Capacity Development project is funded under the 5th Call of the Asi@Connect program, supported by the European Union and implemented through TEIN Cooperation Center.</p>
                 </div>
                 <div class="footer-section">
-                    <h3>Technical Excellence</h3>
-                    <p>Building technical capacity in Dense Wavelength Division Multiplexing technology across eleven countries, bridging the digital divide through innovative blended training methodology.</p>
+                    <h3>Network Impact</h3>
+                    <p>Strengthening NREN capabilities for seamless, secure, and standardized campus Wi-Fi access across participating countries through comprehensive Eduroam training and deployment support.</p>
                 </div>
                 <div class="footer-section">
                     <h3>Sustainable Development Goals</h3>
@@ -1095,7 +1039,7 @@
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2024 DWDM Training Program. Led by BdREN, funded by the European Union through Asi@Connect.</p>
+                <p>&copy; 2024 Eduroam Capacity Development Project. Led by PSTU, funded by the European Union through Asi@Connect.</p>
             </div>
         </div>
     </footer>
@@ -1198,7 +1142,7 @@
         const addStaggeredAnimation = () => {
             const cardContainers = [
                 '.countries-grid .country-card',
-                '.tech-grid .tech-card',
+                '.activities-grid .activity-card',
                 '.outcomes-grid .outcome-card'
             ];
 
@@ -1213,10 +1157,10 @@
         // Initialize staggered animations when page loads
         document.addEventListener('DOMContentLoaded', addStaggeredAnimation);
 
-        // Add optical transmission-themed hover effects
-        document.querySelectorAll('.tech-icon').forEach(icon => {
+        // Add WiFi-themed hover effects
+        document.querySelectorAll('.activity-icon').forEach(icon => {
             icon.addEventListener('mouseenter', () => {
-                icon.style.transform = 'scale(1.3) rotate(15deg)';
+                icon.style.transform = 'scale(1.3) rotate(10deg)';
                 icon.style.boxShadow = '0 8px 25px rgba(242, 140, 40, 0.4)';
             });
             
@@ -1226,117 +1170,114 @@
             });
         });
 
-        // Add DWDM wavelength simulation
-        const simulateWavelengthMultiplexing = () => {
-            const phaseCards = document.querySelectorAll('.phase-card');
-            let currentPhase = 0;
+        // Add Eduroam connectivity simulation
+        const simulateEduroamConnectivity = () => {
+            const features = document.querySelectorAll('.feature-item');
+            let currentFeature = 0;
             
             setInterval(() => {
-                phaseCards.forEach(card => {
-                    card.style.borderLeft = '4px solid #F28C28';
-                    card.style.transform = 'scale(1)';
-                });
+                features.forEach(feature => feature.style.borderLeft = '4px solid #F28C28');
                 
-                if (phaseCards[currentPhase]) {
-                    phaseCards[currentPhase].style.borderLeft = '4px solid #E88C2D';
-                    phaseCards[currentPhase].style.backgroundColor = 'rgba(242, 140, 40, 0.1)';
-                    phaseCards[currentPhase].style.transform = 'scale(1.02)';
+                if (features[currentFeature]) {
+                    features[currentFeature].style.borderLeft = '4px solid #E88C2D';
+                    features[currentFeature].style.backgroundColor = 'rgba(242, 140, 40, 0.1)';
+                    features[currentFeature].style.transform = 'scale(1.02)';
                     
                     setTimeout(() => {
-                        phaseCards[currentPhase].style.backgroundColor = '';
-                        phaseCards[currentPhase].style.transform = 'scale(1)';
-                    }, 2000);
+                        features[currentFeature].style.backgroundColor = '';
+                        features[currentFeature].style.transform = 'scale(1)';
+                    }, 1500);
                 }
                 
-                currentPhase = (currentPhase + 1) % phaseCards.length;
-            }, 4000);
+                currentFeature = (currentFeature + 1) % features.length;
+            }, 3000);
         };
 
-        // Add optical network connectivity animation
-        const simulateOpticalConnectivity = () => {
+        // Add network roaming animation
+        const simulateNetworkRoaming = () => {
             const institutionHighlight = document.querySelector('.institution-highlight');
-            const formatHighlight = document.querySelector('.format-highlight');
+            const eduroamHighlight = document.querySelector('.eduroam-highlight');
             
-            if (institutionHighlight && formatHighlight) {
+            if (institutionHighlight && eduroamHighlight) {
                 setInterval(() => {
                     institutionHighlight.style.boxShadow = '0 10px 30px rgba(232, 140, 45, 0.6)';
-                    formatHighlight.style.boxShadow = '0 10px 30px rgba(232, 140, 45, 0.6)';
+                    eduroamHighlight.style.boxShadow = '0 10px 30px rgba(232, 140, 45, 0.6)';
                     institutionHighlight.style.transform = 'scale(1.02)';
-                    formatHighlight.style.transform = 'scale(1.02)';
+                    eduroamHighlight.style.transform = 'scale(1.02)';
                     
                     setTimeout(() => {
                         institutionHighlight.style.boxShadow = '0 10px 30px rgba(242, 140, 40, 0.3)';
-                        formatHighlight.style.boxShadow = '0 10px 30px rgba(242, 140, 40, 0.3)';
+                        eduroamHighlight.style.boxShadow = '0 10px 30px rgba(242, 140, 40, 0.3)';
                         institutionHighlight.style.transform = 'scale(1)';
-                        formatHighlight.style.transform = 'scale(1)';
+                        eduroamHighlight.style.transform = 'scale(1)';
                     }, 1500);
-                }, 5000);
+                }, 4000);
             }
         };
 
         // Initialize simulations
         document.addEventListener('DOMContentLoaded', () => {
-            simulateWavelengthMultiplexing();
-            simulateOpticalConnectivity();
+            simulateEduroamConnectivity();
+            simulateNetworkRoaming();
         });
 
-        // Add optical fiber pattern animation
-        const createOpticalPattern = () => {
+        // Add WiFi signal pattern animation
+        const createWiFiPattern = () => {
             const hero = document.querySelector('.hero');
-            for (let i = 0; i < 12; i++) {
-                const optical = document.createElement('div');
-                optical.innerHTML = Math.random() > 0.5 ? '💡' : '🌐';
-                optical.style.cssText = `
+            for (let i = 0; i < 15; i++) {
+                const wifi = document.createElement('div');
+                wifi.innerHTML = Math.random() > 0.5 ? '📶' : '🔐';
+                wifi.style.cssText = `
                     position: absolute;
-                    font-size: 1.4rem;
-                    opacity: 0.15;
-                    animation: opticalFlow ${4 + Math.random() * 3}s ease-in-out infinite;
+                    font-size: 1.3rem;
+                    opacity: 0.12;
+                    animation: wifiFlow ${3 + Math.random() * 4}s ease-in-out infinite;
                     top: ${20 + Math.random() * 60}%;
                     left: ${Math.random() * 100}%;
                     z-index: 1;
                 `;
-                hero.appendChild(optical);
+                hero.appendChild(wifi);
             }
         };
 
-        // Add CSS animation for optical flow
+        // Add CSS animation for WiFi flow
         const style = document.createElement('style');
         style.textContent = `
-            @keyframes opticalFlow {
+            @keyframes wifiFlow {
                 0%, 100% { transform: translateY(0px) scale(0.8) opacity(0.1); }
-                25% { transform: translateY(-15px) scale(1.2) opacity(0.2); }
-                50% { transform: translateY(-25px) scale(1.4) opacity(0.25); }
-                75% { transform: translateY(-10px) scale(1.0) opacity(0.15); }
+                25% { transform: translateY(-12px) scale(1.1) opacity(0.15); }
+                50% { transform: translateY(-25px) scale(1.3) opacity(0.2); }
+                75% { transform: translateY(-8px) scale(0.9) opacity(0.12); }
             }
         `;
         document.head.appendChild(style);
 
-        // Initialize optical pattern
-        document.addEventListener('DOMContentLoaded', createOpticalPattern);
+        // Initialize WiFi pattern
+        document.addEventListener('DOMContentLoaded', createWiFiPattern);
 
-        // Simulate DWDM channel multiplexing
-        const simulateDWDMChannels = () => {
+        // Simulate Eduroam authentication status
+        const simulateEduroamAuth = () => {
             const stats = document.querySelectorAll('.stat-number');
-            const channelStats = [stats[2], stats[3]]; // Virtual sessions and hands-on days
+            const participantStats = [stats[0], stats[2]]; // Participants and training days
             
-            if (channelStats[0] && channelStats[1]) {
+            if (participantStats[0] && participantStats[1]) {
                 setInterval(() => {
-                    channelStats.forEach(stat => {
+                    participantStats.forEach(stat => {
                         stat.style.color = Math.random() > 0.5 ? '#F28C28' : '#E88C2D';
-                        stat.style.textShadow = '0 0 10px rgba(242, 140, 40, 0.6)';
+                        stat.style.textShadow = '0 0 8px rgba(242, 140, 40, 0.5)';
                     });
                     
                     setTimeout(() => {
-                        channelStats.forEach(stat => {
+                        participantStats.forEach(stat => {
                             stat.style.textShadow = 'none';
                         });
                     }, 1000);
-                }, 3000);
+                }, 3500);
             }
         };
 
-        // Start DWDM simulation after page load
-        setTimeout(simulateDWDMChannels, 4000);
+        // Start authentication simulation after page load
+        setTimeout(simulateEduroamAuth, 3000);
     </script>
 </body>
 </html>
